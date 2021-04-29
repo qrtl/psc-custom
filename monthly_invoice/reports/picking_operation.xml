@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <template id="report_picking_custom" inherit_id="stock.report_picking">
+         <xpath expr="//div[@name='div_state']" position="replace">
+             <div class="col-auto" name="div_state">
+                                    <strong>出荷日:</strong>
+                                    <p t-field="o.commitment_date"/>
+                                </div>
+             <div class="col-auto" name="div_arrival">
+                                    <strong>必着日:</strong>
+                                    <p t-field="o.arrival_date"/>
+                                </div>
+
+         </xpath>
+         <xpath expr="//div[@name='div_sched_date']" position="replace">
+             <div class="col-auto" name="div_picking">
+                                    <strong>御社オーダーNo:</strong>
+                                    <p t-esc="o._get_order_data('client_order_ref')"/>
+                                </div>
+         </xpath>
+     </template>
+</odoo>
