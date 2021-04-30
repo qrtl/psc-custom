@@ -55,7 +55,6 @@
                                         <!-- Displayed fields -->
                                         <field name="sequence" widget="handle"/>
                                         <field name="move_name" invisible="1"/>
-                                        <field name="order_date"/>
                                         <field name="date"/>
                                         <field name="move_id" >
                                                 <field name="invoice_origin"/>

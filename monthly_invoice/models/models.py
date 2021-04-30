@@ -25,29 +25,12 @@ def get_month_day_range(date):
 class account_move_monthly(models.Model):
     _inherit = 'account.move.line'
     monthly_partner_id = fields.Many2one('res.partner', string='Partner Monthly', ondelete='restrict')
-    order_date = fields.Date(string='Order Date', compute='_compute_order_date', store=True)
-
-    @api.depends("move_id", "move_id.invoice_origin", "move_id.monthly_invoices",
-                 "move_id.invoice_date", "move_id.partner_shipping_id", "move_id.invoice_line_ids",
-                 "move_id.write_date", "product_id", "date", "write_date")
-    def _compute_order_date(self):
-        for invoice_line in self:
-            print("computed date")
-            try:
-                sale_order = self.env['sale.order'].search([("name", "=", invoice_line.move_id.invoice_origin)])[0]
-                if sale_order:
-                    invoice_line.order_date = sale_order.date_order
-                else:
-                    invoice_line.order_date = invoice_line.move_id.date
-            except:
-                invoice_line.order_date = invoice_line.move_id.date
 
     def _get_order_data(self, field_name):
         try:
             if field_name is "scheduled_date":
                 delivery = self.env['stock.picking'].search([("origin", "=", self.move_id[0].invoice_origin),
                                                              ("state", "!=", "cancel")])[0]
-                print(delivery)
                 return delivery[field_name] + datetime.timedelta(days=1)
 
             sale_order = self.env['sale.order'].search([("name", "=", self.move_id[0].invoice_origin)])[0]
@@ -153,23 +136,22 @@ class account_move(models.Model):
 
     def _compute_monthly_with_group(self):
         for single_invoice in self:
-            first_day, last_day = get_month_day_range(single_invoice.monthly_invoices[0].order_date)
-            # single_invoice.grouped_by_delivery = single_invoice.env["account.move"].read_group([["partner_id", "=",
-            #                                                                                      single_invoice.partner_id.id],
-            #                                                                                     ["type", "=",
-            #                                                                                      "out_invoice"]
-            #                                                                                     #    ,
-            #                                                                                     # ["invoice_date", ">=",
-            #                                                                                     #  first_day],
-            #                                                                                     # ["invoice_date", "<=",
-            #                                                                                     #  last_day]
-            #                                                                                     ],
-            #                                                                                    ["partner_shipping_id",
-            #                                                                                     "amount_total",
-            #                                                                                     "partner_id",
-            #                                                                                     "amount_untaxed",
-            #                                                                                     "amount_tax"],
-            #                                                                                    ["partner_shipping_id"])
+            first_day, last_day = get_month_day_range(single_invoice.invoice_date)
+            single_invoice.grouped_by_delivery = single_invoice.env["account.move"].read_group([["partner_id", "=",
+                                                                                                 single_invoice.partner_id.id],
+                                                                                                ["type", "=",
+                                                                                                 "out_invoice"],
+                                                                                                ["invoice_date", ">=",
+                                                                                                 first_day],
+                                                                                                ["invoice_date", "<=",
+                                                                                                 last_day]
+                                                                                                ],
+                                                                                               ["partner_shipping_id",
+                                                                                                "amount_total",
+                                                                                                "partner_id",
+                                                                                                "amount_untaxed",
+                                                                                                "amount_tax"],
+                                                                                               ["partner_shipping_id"])
 
             single_invoice.group_lines = single_invoice.monthly_invoices.read_group(
                 [("partner_id", "=", single_invoice.partner_id.id), ("account_internal_type", "!=", "receivable"),
@@ -177,10 +159,9 @@ class account_move(models.Model):
                  ("account_internal_type", "!=", "payable"),
                  ("credit", "!=", "0"),
                  ("tax_line_id", "=", False),
-                 ["order_date", ">=", first_day],
-                 ["order_date", "<=", last_day]
-                 ],
-                ["product_id", "order_date", "quantity", "partner_id",
+                 ["date", ">=", first_day],
+                 ["date", "<=", last_day]],
+                ["product_id", "quantity", "partner_id",
                  "price_unit", "price_total"],
                 ["product_id"])
             print(single_invoice.group_lines)
@@ -208,16 +189,14 @@ class account_move(models.Model):
             #
             # except:
             try:
-                this_moth_date = self.env['sale.order'].search(([('name', '=', single_invoice.invoice_origin)]))[0].date_order if single_invoice.invoice_origin else single_invoice.invoice_date
-                first_day, last_day = get_month_day_range(this_moth_date)
-                print(this_moth_date)
+                # sale_order = self.env['sale.order'].search(([('name', '=', single_invoice.invoice_origin)]))
+                first_day, last_day = get_month_day_range(single_invoice.invoice_date)
                 same_month_sales_lines = all_sales_lines_of_this_customer.filtered(lambda
-                                                                                       r: True if r.order_date <= last_day and
-                                                                                                  r.order_date >= first_day else False)
-                print(same_month_sales_lines, last_day)
-
+                                                                                       r: True if r.move_id.date <= last_day and
+                                                                                                  r.move_id.date >= first_day else False)
+            #     print(len(same_month_sales_lines))
+            #     # single_invoice.invoice_date = sale_order.date_order
             except:
-                print("something bad happened")
                 single_invoice.monthly_invoices = single_invoice.invoice_line_ids
                 return {
                     'error': {
@@ -243,6 +222,46 @@ class account_move(models.Model):
             balance = sum(line.amount for line in single_invoice.payments_of_the_customer) - sum(
                 line.amount_total for line in single_invoice.expenses_of_the_customer)
             single_invoice.customer_balance = - balance if balance != 0 else balance
+
+    def print_monthly(self):
+        for single_invoice in self:
+            all_sales_lines_of_this_customer = single_invoice.env["account.move.line"].search(
+                [("partner_id", "=", single_invoice.partner_id.id), ("account_internal_type", "!=", "receivable"),
+                 ("payment_id", "=", False),
+                 ("account_internal_type", "!=", "payable"),
+                 ("tax_line_id", "=", False)], order='date asc'
+            )
+            # keep only the ones of the same month as this invoice
+            try:
+                same_month_sales_lines = all_sales_lines_of_this_customer.filtered(lambda
+                                                                                       r: True if r.date.month == single_invoice.invoice_date.month and r.date.year == single_invoice.invoice_date.year else False)
+
+            except:
+                sale_order = self.env['sale.order'].search(([('name', '=', single_invoice.invoice_origin)]))
+                same_month_sales_lines = all_sales_lines_of_this_customer.filtered(lambda
+                                                                                       r: True if r.date.month == sale_order.date_order.month and r.date.year == sale_order.date_order.year else False)
+                if len(same_month_sales_lines) == 0:
+                    same_month_sales_lines = single_invoice.invoice_line_ids
+            single_invoice.monthly_invoices = same_month_sales_lines
+            print(same_month_sales_lines.partner_id.name)
+            print(single_invoice.partner_id.id, len(all_sales_lines_of_this_customer), len(same_month_sales_lines))
+            single_invoice.payments_of_the_customer = single_invoice.env["account.payment"].search(
+                [("partner_id", "=", single_invoice.partner_id.id),
+                 ("payment_date", "<=", single_invoice.invoice_date)]
+            )
+            single_invoice.expenses_of_the_customer = single_invoice.env["account.move"].search([("partner_id", "=",
+                                                                                                  single_invoice.partner_id.id),
+                                                                                                 ("type", "=",
+                                                                                                  "out_invoice"),
+                                                                                                 ("invoice_date", "<=",
+                                                                                                  single_invoice.invoice_date)])
+
+            single_invoice.customer_balance = sum(
+                line.amount for line in single_invoice.payments_of_the_customer) - sum(
+                line.amount_total for line in single_invoice.expenses_of_the_customer)
+            print("The balance is ", single_invoice.customer_balance)
+
+            return single_invoice.env.ref("monthly_invoice.report_monthly_invoice_print").report_action(single_invoice)
 
     @staticmethod
     def last_working_day_of_month(year, month):
