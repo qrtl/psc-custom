@@ -32,8 +32,8 @@ repos:
     hooks:
       # update the NOT INSTALLABLE ADDONS section above
       - id: oca-update-pre-commit-excluded-addons
-      - id: oca-fix-manifest-website
-        args: ["https://www.quartile.co"]
+      # - id: oca-fix-manifest-website
+      #   args: ["https://www.quartile.co"]
   - repo: https://github.com/myint/autoflake
     rev: v1.4
     hooks:
