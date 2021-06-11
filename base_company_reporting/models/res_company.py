@@ -9,7 +9,7 @@ class ResCompany(models.Model):
 
     remit_to_info = fields.Html(
         "Remit-to Information",
-        help="Remit-to information that should show in the reports when set."
+        help="Remit-to information that should show in the reports when set. "
         "To reset the value, please update the source and translations strings "
         "of the translation record.",
         translate=True,
