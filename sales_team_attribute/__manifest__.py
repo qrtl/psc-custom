@@ -1,7 +1,7 @@
 # Copyright 2021 Quartile Limited
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
-    "name": "Base Company Reporting",
+    "name": "Sales Team Attribute",
     "version": "13.0.1.0.0",
     "category": "Sales",
     "license": "LGPL-3",
