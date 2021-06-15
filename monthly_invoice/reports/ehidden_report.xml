@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
                 <report
-                    id="ebidden_csv_report"
-                    model="stock.picking"
-                    report_type="csv"
-                    string="e飛伝データ出力"
-                    name="stock.ebidden_csv"
-                    file="stock.ebidden_csv"
-                />
+            id="ebidden_csv_report"
+            model="stock.picking"
+            report_type="csv"
+            string="e飛伝データ出力"
+            name="stock.ebidden_csv"
+            file="stock.ebidden_csv"
+        />
 
     </data>
 </odoo>
