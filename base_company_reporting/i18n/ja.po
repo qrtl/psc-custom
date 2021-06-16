@@ -37,3 +37,8 @@ msgstr "レポートに表示する振込先情報です。変更がある場合
 #: model_terms:ir.ui.view,arch_db:base_company_reporting.view_company_form
 msgid "Reporting"
 msgstr "レポーティング"
+
+#. module: base_company_reporting
+#: model:ir.model.fields,field_description:base_company_reporting.field_res_company__contact_team
+msgid "contact_team"
+msgstr "請求連絡先"
