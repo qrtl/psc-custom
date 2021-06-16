@@ -15,3 +15,5 @@ class ResCompany(models.Model):
         translate=True,
         sanitize=False,
     )
+
+    x_contact_team = fields.Char('x_contact_team')
