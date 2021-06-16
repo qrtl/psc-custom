@@ -16,4 +16,4 @@ class ResCompany(models.Model):
         sanitize=False,
     )
 
-    contact_team = fields.Char("contact_team", translate=True,)
+    contact_team = fields.Char("contact_team")
