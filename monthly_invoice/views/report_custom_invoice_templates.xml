@@ -109,10 +109,13 @@
                 <span t-esc="o._get_partner_address(c)" />
                 <span t-esc="c.street2 or ''" />
             </div>
-            <div t-if="o.team_id">
+            <div>
+                <div t-field="c.x_contact_team" />
+            </div>
+            <!-- <div t-if="o.team_id">
                 <div t-field="o.team_id.name" />
                 <div t-field="o.team_id.phone" />
-            </div>
+            </div> -->
         </div>
         <div>
             <div t-field="c.remit_to_info" />
