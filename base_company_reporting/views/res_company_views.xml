@@ -8,8 +8,8 @@
             <notebook position="inside">
                 <page string="Reporting" name="reporting" groups="base.group_system">
                     <group>
-                        <field name="contact_team" type="xml" />
-                        <field name="remit_to_info" type="xml" />
+                        <field name="contact_team" />
+                        <field name="remit_to_info" />
                     </group>
                 </page>
             </notebook>

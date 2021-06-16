@@ -13,7 +13,6 @@ class ResCompany(models.Model):
         "To reset the value, please update the source and translations strings "
         "of the translation record.",
         translate=True,
-        sanitize=False,
     )
 
     contact_team = fields.Char("contact_team")
