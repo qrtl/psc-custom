@@ -91,3 +91,8 @@
 .counter-indicate {
     page-break-inside: avoid;
 }
+
+.remit_to_info {
+    font-size: 11px;
+    padding-bottom: 11px;
+}
