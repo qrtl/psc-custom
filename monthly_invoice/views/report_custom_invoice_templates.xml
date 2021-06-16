@@ -113,8 +113,8 @@
                 <div t-field="c.contact_team" />
             </div>
         </div>
-        <div>
-            <div class="remit_to_info" t-field="c.remit_to_info" />
+        <div class="remit_to_info">
+            <div t-field="c.remit_to_info" />
         </div>
     </template>
     <template id="inkan_table">
