@@ -7,11 +7,12 @@ from odoo import fields, models
 class ResCompany(models.Model):
     _inherit = "res.company"
 
-    remit_to_info = fields.Html(
+    remit_to_info = fields.Text(
         "Remit-to Information",
         help="Remit-to information that should show in the reports when set. "
         "To reset the value, please update the source and translations strings "
         "of the translation record.",
         translate=True,
-        sanitize=False,
     )
+
+    contact_team = fields.Char()
