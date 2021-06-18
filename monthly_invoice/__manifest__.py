@@ -9,13 +9,7 @@
     "website": "https://beanslabo.com",
     "category": "Accounting",
     "version": "13.0.2.0.0",
-    "depends": [
-        "crm",
-        "sale_stock",
-        "report_csv",
-        "base_company_reporting",
-        "sales_team_attribute",
-    ],
+    "depends": ["crm", "sale_stock", "report_csv", "base_company_reporting"],
     "data": [
         "reports/delivery_note.xml",
         "reports/sale_order.xml",
