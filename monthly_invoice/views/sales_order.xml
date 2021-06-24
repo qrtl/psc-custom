@@ -184,12 +184,7 @@
                 >
                             <field name="arrival_date" />
                         </xpath>
-                        <!-- Useless-->
-<!--                        <xpath expr="//div[@class='o_td_label']" position="replace">-->
-<!--                            <div class="o_td_label">-->
-<!--                                <label for="date_order" string="オーダー日"/>-->
-<!--                            </div>-->
-<!--                        </xpath>-->
+
                         <xpath
                     expr="//field[@name='commitment_date']"
                     position="attributes"

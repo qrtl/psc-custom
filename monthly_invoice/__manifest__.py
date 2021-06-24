@@ -8,7 +8,7 @@
     "author": "豆ラボ, Quartile Limited",
     "website": "https://beanslabo.com",
     "category": "Accounting",
-    "version": "13.0.2.0.0",
+    "version": "13.0.2.0.1",
     "depends": ["crm", "sale_stock", "report_csv", "base_company_reporting"],
     "data": [
         "reports/delivery_note.xml",

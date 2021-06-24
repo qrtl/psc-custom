@@ -11,16 +11,17 @@
 
 .address-box {
     font-size: 14px;
-    padding-bottom: 12px;
+    padding: 0px 0px 12px 12px;
 }
 
 .partner-name {
+    padding-left: 14px;
     font-size: 16px;
     font-weight: bold;
 }
 
 .whole-subject {
-    padding-top: 50px;
+    padding-top: 90px;
 }
 
 .subject-title {
