@@ -18,6 +18,6 @@
         name="monthly_invoice.report_monthly_invoice"
         file="monthly_invoice.report_monthly_invoice"
         paperformat="monthly_invoice.paperformat_japan_lowmargin"
-        print_report_name="'Monthly Invoice %s' % (object.monthly_invoice_number)"
+        print_report_name="'Monthly Invoice %s' % (object.name)"
     />
 </odoo>

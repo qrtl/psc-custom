@@ -43,7 +43,6 @@ class AccountMove(models.Model):
         compute="_compute_invoice_issue_date",
         help="The date the monthly invoice is supposed to be issued on.",
     )
-    monthly_invoice_number = fields.Char(compute="_compute_monthly_invoice_number")
 
     def _get_partner_address(self, partner):
         """This method intends to return the address (up to street) in one line
@@ -99,13 +98,6 @@ class AccountMove(models.Model):
         for inv in self:
             if inv.invoice_date:
                 inv.invoice_issue_date = inv.invoice_date + relativedelta(day=31)
-
-    def _compute_monthly_invoice_number(self):
-        for inv in self:
-            if inv.partner_id and inv.partner_id.vat and inv.invoice_date:
-                inv.monthly_invoice_number = inv.partner_id.vat[
-                    4:
-                ] + inv.invoice_date.strftime("%y%m")
 
     @api.onchange("invoice_date", "partner_id", "monthly_invoices")
     def _onchange_invoice_date(self):

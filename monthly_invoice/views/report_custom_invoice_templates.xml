@@ -4,14 +4,14 @@
         <div class="custom-header">
             発行日: <span t-field="o.invoice_issue_date" />
             <br />
-            ご請求No: FPS49-<span t-field="o.monthly_invoice_number" />
+            ご請求No: <span t-field="o.name" />
         </div>
     </template>
     <template id="normal_inv_header">
         <div class="custom-header">
             発行日: <span t-field="o.invoice_date" />
             <br />
-            ご請求No: FPS49-<span t-esc="str(o.name)[6:]" />
+            ご請求No: <span t-esc="o.name" />
         </div>
     </template>
     <template id="partner_address">

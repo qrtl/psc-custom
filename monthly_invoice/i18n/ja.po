@@ -22,8 +22,8 @@ msgstr "'個別請求書 %s' % (object._get_report_base_filename())"
 
 #. module: monthly_invoice
 #: model:ir.actions.report,print_report_name:monthly_invoice.report_monthly_invoice_print
-msgid "'Monthly Invoice %s' % (object.monthly_invoice_number)"
-msgstr "'月次請求書 %s' % (object.monthly_invoice_number)"
+msgid "'Monthly Invoice %s' % (object.name)"
+msgstr "'月次請求書 %s' % (object.name)"
 
 #. module: monthly_invoice
 #: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
@@ -37,14 +37,6 @@ msgstr ""
 msgid ""
 "<br/>\n"
 "                                    御社オーダーNo:"
-msgstr ""
-
-#. module: monthly_invoice
-#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_inv_header
-#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_inv_header
-msgid ""
-"<br/>\n"
-"            ご請求No: FPS49-"
 msgstr ""
 
 #. module: monthly_invoice
@@ -316,11 +308,6 @@ msgstr "月次請求書"
 #: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
 msgid "Monthly Invoice Lines"
 msgstr ""
-
-#. module: monthly_invoice
-#: model:ir.model.fields,field_description:monthly_invoice.field_account_move__monthly_invoice_number
-msgid "Monthly Invoice Number"
-msgstr "月次請求書番号"
 
 #. module: monthly_invoice
 #: model:ir.model.fields,field_description:monthly_invoice.field_account_move__monthly_invoices
