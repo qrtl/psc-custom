@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-12 11:51+0000\n"
-"PO-Revision-Date: 2021-06-12 11:51+0000\n"
+"POT-Creation-Date: 2021-09-01 15:01+0000\n"
+"PO-Revision-Date: 2021-09-01 15:01+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -224,6 +224,11 @@ msgid "Country"
 msgstr "国"
 
 #. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_account_move_line__date_delivered
+msgid "Delivered Date"
+msgstr "納入日"
+
+#. module: monthly_invoice
 #: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
 msgid "Disc.%"
 msgstr ""
@@ -253,6 +258,13 @@ msgstr ""
 #: model:ir.model.fields,help:monthly_invoice.field_sale_order__pricelist_id
 msgid "If you change the pricelist, only newly added lines will be affected."
 msgstr "価格表を変更すると、新しく追加された行のみが影響を受けます。"
+
+#. module: monthly_invoice
+#: model:ir.model.fields,help:monthly_invoice.field_account_move_line__date_delivered
+msgid ""
+"Indicates the date on which the delivery is assumed to have been received by"
+" the customer."
+msgstr "顧客に納品されたと想定される日付。"
 
 #. module: monthly_invoice
 #: model:ir.actions.report,name:monthly_invoice.report_individual_invoice_print

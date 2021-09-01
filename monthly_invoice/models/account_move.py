@@ -147,11 +147,9 @@ class AccountMove(models.Model):
                     ["date", ">=", first_day],
                     ["date", "<=", last_day],
                 ],
-                ["product_id", "quantity", "partner_id", "price_unit", "price_total"],
-                ["product_id"],
+                ["name", "quantity", "partner_id", "price_unit", "price_total"],
+                ["name"],
             )
-            for group in single_invoice.group_lines:
-                print(">>>>>>", group["product_id"][1], group["quantity"])
             return single_invoice.group_lines
 
     def _compute_monthly(self):

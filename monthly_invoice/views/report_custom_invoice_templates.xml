@@ -136,9 +136,7 @@
             <t t-foreach="o._compute_monthly_with_group()" t-as="line_group">
                 <tr>
                     <td>
-                        <span
-                            t-esc="line_group['product_id'][1] if line_group['product_id'] else 'N/A'"
-                        />
+                        <span t-esc="line_group['name']" />
                     </td>
                     <td class="text-right">
                         <span t-esc="'{0:,}'.format(round(line_group['quantity']))" />
@@ -191,14 +189,14 @@
             <tbody class="invoice_tbody">
                 <t
                     t-set="lines"
-                    t-value="o.monthly_invoices.sorted(key=lambda l: l._get_order_data('scheduled_date'))"
+                    t-value="o.monthly_invoices.sorted(key=lambda l: l.date_delivered)"
                 />
                 <t t-set="counter" t-value="0" />
                 <t t-foreach="lines" t-as="l">
                     <tr class="statement-column">
                         <td name="order_date" class="text-center">
                             <span
-                                t-esc="l._get_order_data('scheduled_date')"
+                                t-field="l.date_delivered"
                                 t-options="{'widget': 'date'}"
                             />
                         </td>
@@ -209,10 +207,7 @@
                             />
                         </td>
                         <td name="description" class="text-left">
-                            <span
-                                t-field="l.product_id.name"
-                                t-options="{'widget': 'text'}"
-                            />
+                            <span t-field="l.name" t-options="{'widget': 'text'}" />
                         </td>
                         <td name="price_unit" class="text-right">
                             <span t-esc="'{0:,}'.format(round(l.price_unit))" />
