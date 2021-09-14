@@ -21,7 +21,7 @@
                                 <p class="float-right" style="width: 80%;">
 
                                     出荷日:
-                                            平成 <span t-esc="o.scheduled_date.year" />
+                                            <span t-esc="o.scheduled_date.year" />
                                         年
                                             <span t-esc="o.scheduled_date.month" />
                                         月

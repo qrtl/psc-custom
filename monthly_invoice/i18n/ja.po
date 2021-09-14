@@ -472,13 +472,6 @@ msgid "出荷日"
 msgstr ""
 
 #. module: monthly_invoice
-#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
-msgid ""
-"出荷日:\n"
-"                                            平成"
-msgstr ""
-
-#. module: monthly_invoice
 #: model_terms:ir.ui.view,arch_db:monthly_invoice.bill_summary
 #: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_order_line_table
 msgid "合計"
