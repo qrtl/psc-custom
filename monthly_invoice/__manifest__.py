@@ -14,7 +14,6 @@
         "reports/delivery_note.xml",
         "reports/sale_order.xml",
         "reports/header_custom.xml",
-        "reports/ehidden_report.xml",
         "reports/picking_operation.xml",
         "reports/print_format.xml",
         "views/account_move_views.xml",

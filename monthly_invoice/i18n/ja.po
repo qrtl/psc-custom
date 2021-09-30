@@ -400,18 +400,8 @@ msgid "With tax"
 msgstr ""
 
 #. module: monthly_invoice
-#: model:ir.actions.report,name:monthly_invoice.ebidden_csv_report
-msgid "e飛伝データ出力"
-msgstr ""
-
-#. module: monthly_invoice
 #: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
 msgid "on"
-msgstr ""
-
-#. module: monthly_invoice
-#: model:ir.model,name:monthly_invoice.model_report_stock_ebidden_csv
-msgid "report.stock.ebidden_csv"
 msgstr ""
 
 #. module: monthly_invoice
