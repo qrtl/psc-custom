@@ -7,7 +7,7 @@
             <xpath expr="//group[@name='group_standard_price']" position="attributes">
                 <attribute
                     name="groups"
-                >stock_security_adjust_psc.group_product_sale_price</attribute>
+                >product_sale_price_security.group_product_sale_price</attribute>
             </xpath>
         </field>
     </record>
@@ -26,11 +26,11 @@
         <field name="model">product.template</field>
         <field
             name="inherit_id"
-            ref="stock_security_adjust_psc.product_template_tree_view"
+            ref="product_sale_price_security.product_template_tree_view"
         />
         <field
             name="groups_id"
-            eval="[(6,0,[ref('stock_security_adjust_psc.group_product_sale_price')])]"
+            eval="[(6,0,[ref('product_sale_price_security.group_product_sale_price')])]"
         />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='list_price']" position="attributes">
@@ -53,11 +53,11 @@
         <field name="model">product.product</field>
         <field
             name="inherit_id"
-            ref="stock_security_adjust_psc.product_product_tree_view"
+            ref="product_sale_price_security.product_product_tree_view"
         />
         <field
             name="groups_id"
-            eval="[(6,0,[ref('stock_security_adjust_psc.group_product_sale_price')])]"
+            eval="[(6,0,[ref('product_sale_price_security.group_product_sale_price')])]"
         />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='lst_price']" position="attributes">
@@ -76,7 +76,7 @@
             <xpath expr="//div[@class='oe_kanban_details']/ul" position="attributes">
                 <attribute
                     name="groups"
-                >stock_security_adjust_psc.group_product_sale_price</attribute>
+                >product_sale_price_security.group_product_sale_price</attribute>
             </xpath>
         </field>
     </record>
@@ -88,7 +88,7 @@
             <xpath expr="//div[@class='oe_kanban_details']/ul" position="attributes">
                 <attribute
                     name="groups"
-                >stock_security_adjust_psc.group_product_sale_price</attribute>
+                >product_sale_price_security.group_product_sale_price</attribute>
             </xpath>
         </field>
     </record>
