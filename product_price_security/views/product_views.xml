@@ -24,8 +24,14 @@
     <record id="product_template_tree_view_price" model="ir.ui.view">
         <field name="name">product.tree</field>
         <field name="model">product.template</field>
-        <field name="inherit_id" ref="product_price_security.product_template_tree_view" />
-        <field name="groups_id" eval="[(6,0,[ref('product_price_security.group_product_sale_price')])]" />
+        <field
+            name="inherit_id"
+            ref="product_price_security.product_template_tree_view"
+        />
+        <field
+            name="groups_id"
+            eval="[(6,0,[ref('product_price_security.group_product_sale_price')])]"
+        />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='list_price']" position="attributes">
                 <attribute name="invisible">0</attribute>
@@ -37,7 +43,7 @@
         <field name="model">product.product</field>
         <field name="inherit_id" ref="product.product_product_tree_view" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='list_price']" position="attributes">
+            <xpath expr="//field[@name='lst_price']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
         </field>
@@ -45,10 +51,16 @@
     <record id="product_product_tree_view_price" model="ir.ui.view">
         <field name="name">product.product.tree.view.price</field>
         <field name="model">product.product</field>
-        <field name="inherit_id" ref="product_price_security.product_product_tree_view" />
-        <field name="groups_id" eval="[(6,0,[ref('product_price_security.group_product_sale_price')])]" />
+        <field
+            name="inherit_id"
+            ref="product_price_security.product_product_tree_view"
+        />
+        <field
+            name="groups_id"
+            eval="[(6,0,[ref('product_price_security.group_product_sale_price')])]"
+        />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='list_price']" position="attributes">
+            <xpath expr="//field[@name='lst_price']" position="attributes">
                 <attribute name="invisible">0</attribute>
             </xpath>
         </field>
