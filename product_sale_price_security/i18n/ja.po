@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* stock_security_adjust_psc
+# 	* product_sale_price_security
 #
 msgid ""
 msgstr ""
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: stock_security_adjust_psc
-#: model:res.groups,name:stock_security_adjust_psc.group_product_sale_price
+#. module: product_sale_price_security
+#: model:res.groups,name:product_sale_price_security.group_product_sale_price
 msgid "display product prices"
 msgstr "製品の販売価格を表示"
