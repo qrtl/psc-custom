@@ -49,7 +49,7 @@
             <xpath expr="//field[@name='list_price']" position="attributes">
                 <attribute
                     name="groups"
-                >product_sale_price_security.group_sale_price</attribute>
+                >product_sale_price_security.group_product_sale_price</attribute>
             </xpath>
         </field>
     </record>
@@ -61,7 +61,7 @@
             <xpath expr="//field[@name='lst_price']" position="attributes">
                 <attribute
                     name="groups"
-                >product_sale_price_security.group_sale_price</attribute>
+                >product_sale_price_security.group_product_sale_price</attribute>
             </xpath>
         </field>
     </record>
