@@ -19,7 +19,7 @@
     "website": "https://github.com/OCA/partner-contact",
     "depends": ["base"],
     "summary": "Sets customer's code from a sequence",
-    "data": ["data/partner_sequence.xml"],
+    "data": ["data/partner_sequence.xml", "views/res_partner_views.xml"],
     "installable": True,
     "license": "AGPL-3",
 }
