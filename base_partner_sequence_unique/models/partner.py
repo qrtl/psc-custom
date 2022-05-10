@@ -12,7 +12,6 @@ class ResPartner(models.Model):
 
     _inherit = "res.partner"
 
-    @api.multi
     def _get_next_ref(self, vals=None):
         return self.env["ir.sequence"].next_by_code("res.partner")
 
@@ -22,13 +21,11 @@ class ResPartner(models.Model):
             vals["ref"] = self._get_next_ref(vals=vals)
         return super(ResPartner, self).create(vals)
 
-    @api.multi
     def copy(self, default=None):
         default = default or {}
         default["ref"] = self._get_next_ref()
         return super(ResPartner, self).copy(default)
 
-    @api.multi
     def write(self, vals):
         for partner in self:
             partner_vals = vals.copy()
