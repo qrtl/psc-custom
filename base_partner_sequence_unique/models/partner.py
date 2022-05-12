@@ -4,13 +4,25 @@
 # Copyright 2016 Camptocamp - Akim Juillerat (<http://www.camptocamp.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, models
-
+# from odoo import api, models
+from odoo import fields, api, models
 
 class ResPartner(models.Model):
     """Assigns 'ref' from a sequence on creation and copying"""
 
     _inherit = "res.partner"
+
+    ref = fields.Char(
+        copy=False, help="Non-duplicate numbers for all customers"
+    )
+
+    _sql_constraints = [
+        (
+            "ref_uniq",
+            "UNIQUE(ref)",
+            "ref must be unique.  Please enter another code.",
+        )
+    ]
 
     def _get_next_ref(self, vals=None):
         return self.env["ir.sequence"].next_by_code("res.partner")
@@ -33,4 +45,3 @@ class ResPartner(models.Model):
                 partner_vals["ref"] = partner._get_next_ref(vals=partner_vals)
             super(ResPartner, partner).write(partner_vals)
         return True
-        
