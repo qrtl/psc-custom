@@ -48,4 +48,3 @@ class TestBasePartnerSequence(common.TransactionCase):
         self.assertFalse(partners[0].ref)
         partners.write({})
         self.assertFalse(partners[0].ref == partners[1].ref)
-        

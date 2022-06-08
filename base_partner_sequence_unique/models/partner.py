@@ -5,23 +5,18 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 # from odoo import api, models
-from odoo import fields, api, models
+from odoo import api, fields, models
+
 
 class ResPartner(models.Model):
     """Assigns 'ref' from a sequence on creation and copying"""
 
     _inherit = "res.partner"
 
-    ref = fields.Char(
-        copy=False, help="Non-duplicate numbers for all customers"
-    )
+    ref = fields.Char(copy=False, help="Non-duplicate numbers for all customers")
 
     _sql_constraints = [
-        (
-            "ref_uniq",
-            "UNIQUE(ref)",
-            "ref must be unique.  Please enter another code.",
-        )
+        ("ref_uniq", "UNIQUE (ref)", "ref must be unique.  Please enter another code.",)
     ]
 
     def _get_next_ref(self, vals=None):
