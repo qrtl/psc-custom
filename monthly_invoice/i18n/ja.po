@@ -1,0 +1,549 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* monthly_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-12 11:51+0000\n"
+"PO-Revision-Date: 2021-06-12 11:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: monthly_invoice
+#: model:ir.actions.report,print_report_name:monthly_invoice.report_individual_invoice_print
+msgid "'Individual Invoice %s' % (object._get_report_base_filename())"
+msgstr "'個別請求書 %s' % (object._get_report_base_filename())"
+
+#. module: monthly_invoice
+#: model:ir.actions.report,print_report_name:monthly_invoice.report_monthly_invoice_print
+msgid "'Monthly Invoice %s' % (object.name)"
+msgstr "'月次請求書 %s' % (object.name)"
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
+msgid ""
+"<br/>\n"
+"                                    オーダーNo:"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
+msgid ""
+"<br/>\n"
+"                                    御社オーダーNo:"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
+msgid "<span>Source Document</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
+msgid "<span>出荷日</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.billing_statement
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
+msgid "<span>単価</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.billing_statement
+msgid "<span>合計</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
+msgid "<span>商品名</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.billing_statement
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
+msgid "<span>数量</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.billing_statement
+msgid "<span>消費税</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.billing_statement
+msgid "<span>納品先</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.billing_statement
+msgid "<span>納品日</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.billing_statement
+msgid "<span>製品名</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.billing_statement
+msgid "<span>金額(税抜)</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
+msgid "<span>金額</span>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
+msgid "<strong class=\"mr16\">小計</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_sale_order_custom
+msgid "<strong>Expiration:</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_sale_order_custom
+msgid "<strong>Your Reference:</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_sale_order_custom
+msgid "<strong>ご請求先:</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
+msgid "<strong>ご請求合計金額</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_sale_order_custom
+msgid "<strong>オーダー日:</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_sale_order_custom
+msgid "<strong>出荷倉庫名:</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_picking_custom
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_sale_order_custom
+msgid "<strong>出荷日:</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
+msgid "<strong>商 品 名</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
+msgid "<strong>小計</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_picking_custom
+msgid "<strong>御社オーダーNo:</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_picking_custom
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_sale_order_custom
+msgid "<strong>必着日:</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
+msgid "<strong>数量</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_sale_order_custom
+msgid "<strong>配送先:</strong>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Add a line"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Add a note"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Add a section"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Add an internal note..."
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,help:monthly_invoice.field_res_partner__country_id
+#: model:ir.model.fields,help:monthly_invoice.field_res_users__country_id
+msgid "Apply only if delivery or invoicing country match."
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Before tax"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model,name:monthly_invoice.model_res_partner
+msgid "Contact"
+msgstr "連絡先"
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_res_partner__country_id
+#: model:ir.model.fields,field_description:monthly_invoice.field_res_users__country_id
+msgid "Country"
+msgstr "国"
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Disc.%"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_report_stock_ebidden_csv__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_res_partner__fax
+#: model:ir.model.fields,field_description:monthly_invoice.field_res_users__fax
+msgid "Fax"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_group_by_customer
+msgid "Group by partner"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_report_stock_ebidden_csv__id
+msgid "ID"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,help:monthly_invoice.field_sale_order__pricelist_id
+msgid "If you change the pricelist, only newly added lines will be affected."
+msgstr "価格表を変更すると、新しく追加された行のみが影響を受けます。"
+
+#. module: monthly_invoice
+#: model:ir.actions.report,name:monthly_invoice.report_individual_invoice_print
+msgid "Individual Invoice"
+msgstr "個別請求書"
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_account_move__invoice_issue_date
+msgid "Invoice Issue Date"
+msgstr "請求書発行日"
+
+#. module: monthly_invoice
+#: code:addons/monthly_invoice/models/models.py:0
+#, python-format
+msgid "It is not allowed to confirm an order in the following states: %s"
+msgstr "次の状態では注文を確認できません:%s"
+
+#. module: monthly_invoice
+#: model:ir.model,name:monthly_invoice.model_account_move
+msgid "Journal Entries"
+msgstr "仕訳"
+
+#. module: monthly_invoice
+#: model:ir.model,name:monthly_invoice.model_account_move_line
+msgid "Journal Item"
+msgstr "仕訳項目"
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Journal Items"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_report_stock_ebidden_csv____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_sale_order_custom_header
+msgid "Logo"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.actions.report,name:monthly_invoice.report_monthly_invoice_print
+msgid "Monthly Invoice"
+msgstr "月次請求書"
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Monthly Invoice Lines"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_account_move__monthly_invoices
+msgid "Monthly invoices"
+msgstr "月次請求書"
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_account_move__customer_balance
+msgid "Overall Balance"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_account_move_line__monthly_partner_id
+msgid "Partner Monthly"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Price"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_sale_order__pricelist_id
+msgid "Pricelist"
+msgstr "価格リスト"
+
+#. module: monthly_invoice
+#: model:ir.model,name:monthly_invoice.model_product_product
+msgid "Product"
+msgstr "プロダクト"
+
+#. module: monthly_invoice
+#: model:ir.model,name:monthly_invoice.model_sale_order
+msgid "Sales Order"
+msgstr "販売オーダ"
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Subtotal"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_res_partner__vat
+#: model:ir.model.fields,field_description:monthly_invoice.field_res_users__vat
+msgid "Tax ID"
+msgstr "税ID"
+
+#. module: monthly_invoice
+#: model:ir.model.fields,help:monthly_invoice.field_res_partner__vat
+#: model:ir.model.fields,help:monthly_invoice.field_res_users__vat
+msgid ""
+"The Tax Identification Number. Complete it if the contact is subjected to "
+"government taxes. Used in some legal statements."
+msgstr "納税者番号。連絡が政府の税金の対象となる場合は、記入してください。一部の法的明細で使用されます。"
+
+#. module: monthly_invoice
+#: model:ir.model.fields,help:monthly_invoice.field_account_move__invoice_issue_date
+msgid "The date the monthly invoice is supposed to be issued on."
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_account_move__monthly_sum_with_tax
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "Total"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_account_move__monthly_tax
+msgid "Total Tax"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_account_move__monthly_sum_without_tax
+msgid "Total without tax"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model,name:monthly_invoice.model_stock_picking
+msgid "Transfer"
+msgstr "運送"
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "UoM"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_invoice_form
+msgid "With tax"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.actions.report,name:monthly_invoice.ebidden_csv_report
+msgid "e飛伝データ出力"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_order_line_table
+msgid "on"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model,name:monthly_invoice.model_report_stock_ebidden_csv
+msgid "report.stock.ebidden_csv"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.billing_statement
+msgid "ご請求明細"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_sale_order__date_order
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.confirmed_orders_tree
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.order_form
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.order_tree
+msgid "オーダー日"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.confirmed_orders_tree
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.order_tree
+msgid "データ作成日"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.invoice_subject
+msgid "下記の通りご請求致しますのでお支払い下さいますようお願い申し上げます。"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_sale_order__subject
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.order_form
+msgid "件名"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.invoice_subject
+msgid "件名:"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_stock_picking__commitment_date
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.confirmed_orders_tree
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.order_form
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.order_tree
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.stock_picking_commitment
+msgid "出荷日"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
+msgid ""
+"出荷日:\n"
+"                                            平成"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.bill_summary
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_order_line_table
+msgid "合計"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_order_line_table
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_sale_order_custom
+msgid "商品名"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
+msgid ""
+"平素は格別のご高配を賜り厚く御礼申し上げます。\n"
+"                                        <br/>\n"
+"                                        御納品いたします。宜しくお願い申し上げます。\n"
+"                                        <br/>\n"
+"                                        <br/>\n"
+"                                        <br/>"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.contact_form
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.contact_tree
+msgid "建物名"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
+msgid "御 納 品 書"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.invoice_subject
+msgid "御 請 求 書"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_sale_order__arrival_date
+#: model:ir.model.fields,field_description:monthly_invoice.field_stock_picking__arrival_date
+msgid "必着日"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
+msgid "必着日:"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_order_line_table
+msgid "数量"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.report_delivery_document
+msgid ""
+"日\n"
+"                                    <br/>\n"
+"                                        納品No:"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.bill_summary
+msgid "月御請求金額"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.bill_summary
+msgid "消費税"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.monthly_inv_header
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.normal_inv_header
+msgid "発行日:"
+msgstr ""
+
+#. module: monthly_invoice
+#: model:ir.model.fields,field_description:monthly_invoice.field_sale_order__print_partner_id
+#: model:ir.model.fields,field_description:monthly_invoice.field_stock_picking__print_partner_id
+msgid "発送元"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.contact_form
+msgid "都道府県"
+msgstr ""
+
+#. module: monthly_invoice
+#: model_terms:ir.ui.view,arch_db:monthly_invoice.bill_summary
+msgid "金額(税抜)"
+msgstr ""

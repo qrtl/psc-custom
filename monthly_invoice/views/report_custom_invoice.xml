@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="report_assets_common"
+        name="Custom Invoice Assets"
+        inherit_id="web.report_assets_common"
+    >
+        <xpath expr="." position="inside">
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/monthly_invoice/static/src/css/invoice_report.css"
+            />
+        </xpath>
+    </template>
+    <template id="report_individual_invoice_document">
+        <t t-call="web.internal_layout">
+            <t t-set="o" t-value="o.with_context(lang=lang)" />
+            <div class="row">
+                <div class="col-7">
+                    <t t-call="monthly_invoice.partner_address" />
+                    <t t-call="monthly_invoice.invoice_subject" />
+                    <t t-call="monthly_invoice.bill_summary" />
+                </div>
+                <div class="col-5">
+                    <t t-call="monthly_invoice.normal_inv_header" />
+                    <t t-call="monthly_invoice.company_info" />
+                    <t t-call="monthly_invoice.inkan_table" />
+                </div>
+            </div>
+            <t t-call="monthly_invoice.normal_order_line_table" />
+            <t t-call="monthly_invoice.inv_footer" />
+        </t>
+    </template>
+    <template id="report_individual_invoice">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang" />
+                <t
+                    t-call="monthly_invoice.report_individual_invoice_document"
+                    t-lang="lang"
+                />
+            </t>
+        </t>
+    </template>
+    <template id="report_monthly_invoice_document">
+        <t t-call="web.internal_layout">
+            <t t-set="o" t-value="o.with_context(lang=lang)" />
+            <div class="row">
+                <div class="col-7">
+                    <t t-call="monthly_invoice.partner_address" />
+                    <t t-call="monthly_invoice.invoice_subject" />
+                    <t t-call="monthly_invoice.bill_summary" />
+                </div>
+                <div class="col-5">
+                    <t t-call="monthly_invoice.monthly_inv_header" />
+                    <t t-call="monthly_invoice.company_info" />
+                    <t t-call="monthly_invoice.inkan_table" />
+                </div>
+            </div>
+            <t t-call="monthly_invoice.monthly_order_line_table" />
+            <div style="page-break-before: always;" />
+            <t t-call="monthly_invoice.billing_statement" />
+            <t t-call="monthly_invoice.inv_footer" />
+        </t>
+    </template>
+    <template id="report_monthly_invoice">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang" />
+                <t
+                    t-call="monthly_invoice.report_monthly_invoice_document"
+                    t-lang="lang"
+                />
+            </t>
+        </t>
+    </template>
+</odoo>

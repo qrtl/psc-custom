@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <template
+        id="report_sale_order_custom"
+        inherit_id="sale.report_saleorder_document"
+    >
+         <xpath expr="//div[@id='informations']" position="replace">
+             <div class="row mt32 mb32" id="informations">
+                <div t-if="doc.client_order_ref" class="col-auto mw-100 mb-2">
+                    <strong>Your Reference:</strong>
+                    <p class="m-0" t-field="doc.client_order_ref" />
+                </div>
+                <div class="col-auto mw-100 mb-2">
+                    <strong>オーダー日:</strong>
+                    <p class="m-0" t-field="doc.date_order" />
+                </div>
+                 <div class="col-auto mw-100 mb-2">
+                    <strong>出荷日:</strong>
+                    <p
+                        class="m-0"
+                        t-field="doc.commitment_date"
+                        t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                    />
+                </div>
+             <div class="col-auto mw-100 mb-2">
+                    <strong>必着日:</strong>
+                    <p class="m-0" t-field="doc.arrival_date" />
+                </div>
+                <div
+                    t-if="doc.validity_date and doc.state in ['draft', 'sent']"
+                    class="col-auto mw-100 mb-2"
+                    name="expiration_date"
+                >
+                    <strong>Expiration:</strong>
+                    <p class="m-0" t-field="doc.validity_date" />
+                </div>
+
+            </div>
+         </xpath>
+            <xpath expr="//div[@id='informations']" position="inside">
+                <div t-if="doc.warehouse_id" class="col-auto mw-100 mb-2">
+                    <strong>出荷倉庫名:</strong>
+                    <p class="m-0" t-field="doc.warehouse_id.name" />
+                </div>
+            </xpath>
+
+         <xpath expr="//t[@t-set='address']" position="replace">
+
+                <div class="row" style="padding-top:50px">
+                    <div class="col-4 text-left">
+                        <div style="padding-top:50px;">
+                                <p>
+                                            <span style="font-size:17px;"><t
+                                    t-esc="doc.partner_id.name"
+                                /></span>
+                                            <br />
+                                            <span
+                                style="font-size:17px !important;"
+                                t-field="doc.partner_id.zip"
+                            /><br />
+                                            <span
+                                style="font-size:17px !important;"
+                                t-field="doc.partner_id.state_id.name"
+                            />
+                                            <span
+                                style="font-size:17px !important;"
+                                t-esc="doc.partner_id.city"
+                            />
+                                            <span
+                                style="font-size:17px !important;"
+                                t-esc="doc.partner_id.street"
+                            />
+                                            <span
+                                style="font-size:17px !important;"
+                                t-esc="doc.partner_id.street2"
+                            />
+                                        </p>
+                        <p>
+<!--                            <strong t-if="doc.partner_shipping_id == doc.partner_invoice_id">Invoicing and Shipping Address:</strong>-->
+                            <strong>ご請求先:</strong>
+                            <p>
+                                            <span style="font-size:17px;"><t
+                                        t-esc="doc.partner_invoice_id.name"
+                                    /></span>
+                                            <br />
+                                            <span
+                                    style="font-size:17px !important;"
+                                    t-field="doc.partner_invoice_id.zip"
+                                /><br />
+                                            <span
+                                    style="font-size:17px !important;"
+                                    t-field="doc.partner_invoice_id.state_id.name"
+                                />
+                                            <span
+                                    style="font-size:17px !important;"
+                                    t-esc="doc.partner_invoice_id.city"
+                                />
+                                            <span
+                                    style="font-size:17px !important;"
+                                    t-esc="doc.partner_invoice_id.street"
+                                />
+                                            <span
+                                    style="font-size:17px !important;"
+                                    t-esc="doc.partner_invoice_id.street2"
+                                />
+
+                                </p>
+<!--                            <div t-field="doc.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>-->
+                            <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
+                                <strong>配送先:</strong>
+                                <p>
+                                    <br />
+                                            <span style="font-size:17px;"><t
+                                            t-esc="doc.partner_shipping_id.name"
+                                        /></span>
+                                            <br />
+                                            <span
+                                        style="font-size:17px !important;"
+                                        t-field="doc.partner_shipping_id.zip"
+                                    /><br />
+                                            <span
+                                        style="font-size:17px !important;"
+                                        t-field="doc.partner_shipping_id.state_id.name"
+                                    />
+                                            <span
+                                        style="font-size:17px !important;"
+                                        t-esc="doc.partner_shipping_id.city"
+                                    />
+                                            <span
+                                        style="font-size:17px !important;"
+                                        t-esc="doc.partner_shipping_id.street"
+                                    />
+                                            <span
+                                        style="font-size:17px !important;"
+                                        t-esc="doc.partner_shipping_id.street2"
+                                    />
+                                </p>
+                            </t>
+                        </p>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                    </div>
+                </div>
+        </xpath>
+
+        <xpath
+            expr="//t[@t-if='doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id']"
+            position="replace"
+        />
+<!--                <div class="row" style="padding-top:50px; font-size: 17px;">-->
+<!--                    <div class="col-4 text-left">-->
+<!--                        <t t-set="information_block">-->
+<!--                            <strong t-if="doc.partner_shipping_id == doc.partner_invoice_id">Invoicing and Shipping Address:</strong>-->
+<!--                            <strong t-if="doc.partner_shipping_id != doc.partner_invoice_id">Invoicing Address:</strong>-->
+<!--                            <div t-field="doc.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>-->
+<!--                            <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">-->
+<!--                                <strong>Shipping Address:</strong>-->
+<!--                                <div t-field="doc.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>-->
+<!--                            </t>-->
+<!--                        </t>-->
+<!--                    </div>-->
+<!--                    <div class="col-8">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--        </xpath>-->
+
+         <xpath expr="//span[@t-field='doc.payment_term_id.note']" position="replace" />
+         <xpath expr="//th[@name='th_description']" position="replace">
+                            <th name="th_description" class="text-left">商品名</th>
+
+                        </xpath>
+         <xpath expr="//td[@name='td_name']" position="replace">
+                            <td name="td_name"><span
+                    t-field="line.product_id.name"
+                /></td>
+
+                        </xpath>
+
+
+     </template>
+</odoo>

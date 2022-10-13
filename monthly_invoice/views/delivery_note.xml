@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="stock_picking_form" model="ir.ui.view">
+                    <field name="name">stock.picking.form</field>
+                    <field name="model">stock.picking</field>
+                    <field name="inherit_id" ref="stock.view_picking_form" />
+                    <field name="arch" type="xml">
+
+                        <xpath expr="//field[@name='date_done']" position="after">
+                            <field name="arrival_date" />
+                            <field name="commitment_date" />
+                            <field name="print_partner_id" />
+                        </xpath>
+
+
+                    </field>
+        </record>
+
+        <record id="stock_picking_commitment" model="ir.ui.view">
+                    <field name="name">stock.picking.tree</field>
+                    <field name="model">stock.picking</field>
+                    <field name="inherit_id" ref="stock.vpicktree" />
+                    <field name="arch" type="xml">
+
+                        <xpath expr="//field[@name='scheduled_date']" position="before">
+                            <field name="commitment_date" />
+                        </xpath>
+
+                        <xpath
+                    expr="//field[@name='commitment_date']"
+                    position="attributes"
+                >
+                            <attribute name="widget">date</attribute>
+                            <attribute name="string">出荷日</attribute>
+
+                        </xpath>
+
+
+                    </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,99 @@
+.custom-header {
+    font-size: 14px;
+    text-align: right;
+    padding-bottom: 12px;
+}
+
+/* partner_address */
+.partner-info {
+    padding-right: 90px;
+}
+
+.address-box {
+    font-size: 14px;
+    padding: 0px 0px 12px 12px;
+}
+
+.partner-name {
+    padding-left: 14px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.whole-subject {
+    padding-top: 90px;
+}
+
+.subject-title {
+    font-size: 18px;
+    padding-bottom: 12px;
+}
+
+.main-title {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.bill-summary {
+    width: 85%;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.company-info {
+    font-size: 12px;
+    padding-bottom: 30px;
+}
+
+.company-name {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+/* inkan_style */
+.inkan {
+    width: 80%;
+    padding-top: 10px;
+}
+
+.inkantd {
+    width: 30%;
+    position: relative;
+    border: solid 1px;
+}
+
+.inkantd:after {
+    content: "";
+    display: block;
+    margin-top: 100%;
+}
+
+.invoice-item-table {
+    font-size: 15px;
+    margin-top: 25px;
+}
+
+/* billing_statement */
+.statement-detail {
+    font-weight: 10;
+    font-size: 11px;
+    padding: 2px 2px 2px 2px;
+}
+
+.statement-column {
+    font-weight: 10;
+    font-size: 10px;
+    padding: 2px 2px 2px 2px;
+}
+
+.counter-indicate {
+    page-break-inside: avoid;
+}
+
+.remit_to_info {
+    font-size: 11px;
+    padding-bottom: 11px;
+}
