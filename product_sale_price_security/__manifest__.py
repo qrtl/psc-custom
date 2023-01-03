@@ -6,6 +6,7 @@
     "category": "Product",
     "license": "AGPL-3",
     "author": "Quartile Limited",
+    "website": "https://www.quartile.co",
     "depends": ["product", "sales_team"],
     "data": ["security/product_price_security.xml", "views/product_views.xml"],
     "installable": True,
