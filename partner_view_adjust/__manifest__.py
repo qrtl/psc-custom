@@ -6,6 +6,7 @@
     "category": "Partner",
     "license": "AGPL-3",
     "author": "Quartile Limited",
+    "website": "https://www.quartile.co",
     "depends": ["base"],
     "data": ["views/res_partner_view.xml"],
     "installable": True,
