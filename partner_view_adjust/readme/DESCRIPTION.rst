@@ -1,3 +1,3 @@
-This module does the following:
+This module makes adjustments to partner views.
 
-- Add to the ref fields to the partner list view.
+- The module should not include changes to models or business logic.

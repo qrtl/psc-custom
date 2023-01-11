@@ -19,9 +19,9 @@ Partner View Adjust
 
 |badge1| |badge2| |badge3| 
 
-This module does the following:
+This module makes adjustments to partner views.
 
-- Add to the ref fields to the partner list view.
+- The module should not include changes to models or business logic.
 
 **Table of contents**
 
