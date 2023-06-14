@@ -1,10 +1,10 @@
 # Copyright 2021 Quartile Limited
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Monthly Invoice",
     "summary": """
         Module to allow viewing and printing monthly invoices""",
-    "license": "LGPL-3",
+    "license": "AGPL-3",
     "author": "豆ラボ, Quartile Limited",
     "website": "https://www.quartile.co",
     "category": "Accounting",

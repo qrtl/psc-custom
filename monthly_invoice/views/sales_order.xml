@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <data>
+
         <record id="partner_form" model="ir.ui.view">
                     <field name="name">res.partner.form</field>
                     <field name="model">res.partner</field>
@@ -18,32 +18,32 @@
                     <field name="name">sale.order.tree</field>
                     <field name="model">sale.order</field>
                     <field
-                name="inherit_id"
-                ref="sale.view_quotation_tree_with_onboarding"
-            />
+            name="inherit_id"
+            ref="sale.view_quotation_tree_with_onboarding"
+        />
                     <field name="arch" type="xml">
 
                         <xpath
-                    expr="//field[@name='create_date']"
-                    position="attributes"
-                >
+                expr="//field[@name='create_date']"
+                position="attributes"
+            >
                             <attribute name="widget">date</attribute>
                             <attribute name="string">データ作成日</attribute>
 
                         </xpath>
 
                         <xpath
-                    expr="//field[@name='commitment_date']"
-                    position="attributes"
-                >
+                expr="//field[@name='commitment_date']"
+                position="attributes"
+            >
                             <attribute name="widget">date</attribute>
                             <attribute name="string">出荷日</attribute>
 
                         </xpath>
                         <xpath
-                    expr="//field[@name='expected_date']"
-                    position="attributes"
-                >
+                expr="//field[@name='expected_date']"
+                position="attributes"
+            >
                             <attribute name="invisible">1</attribute>
 
                         </xpath>
@@ -78,9 +78,9 @@
                         </xpath>
 
                         <xpath
-                    expr="//field[@name='create_date']"
-                    position="attributes"
-                >
+                expr="//field[@name='create_date']"
+                position="attributes"
+            >
                             <attribute name="widget">date</attribute>
                             <attribute name="string">データ作成日</attribute>
 
@@ -101,17 +101,17 @@
                         </xpath>
 
                         <xpath
-                    expr="//field[@name='commitment_date']"
-                    position="attributes"
-                >
+                expr="//field[@name='commitment_date']"
+                position="attributes"
+            >
                             <attribute name="widget">date</attribute>
                             <attribute name="string">出荷日</attribute>
 
                         </xpath>
                         <xpath
-                    expr="//field[@name='expected_date']"
-                    position="attributes"
-                >
+                expr="//field[@name='expected_date']"
+                position="attributes"
+            >
                             <attribute name="invisible">1</attribute>
 
                         </xpath>
@@ -128,9 +128,9 @@
                     <field name="arch" type="xml">
 
                         <xpath
-                    expr="//field[@name='scheduled_date']"
-                    position="attributes"
-                >
+                expr="//field[@name='scheduled_date']"
+                position="attributes"
+            >
                             <attribute name="widget">date</attribute>
                         </xpath>
 
@@ -141,9 +141,9 @@
                     <field name="name">sale.order.tree</field>
                     <field name="model">sale.order</field>
                     <field
-                name="inherit_id"
-                ref="sale.view_quotation_tree_with_onboarding"
-            />
+            name="inherit_id"
+            ref="sale.view_quotation_tree_with_onboarding"
+        />
                     <field name="arch" type="xml">
 
                         <xpath expr="//field[@name='partner_id']" position="after">
@@ -162,9 +162,9 @@
                     <field name="arch" type="xml">
 
                         <xpath
-                    expr="//field[@name='partner_shipping_id']"
-                    position="after"
-                >
+                expr="//field[@name='partner_shipping_id']"
+                position="after"
+            >
                             <field name="print_partner_id" />
                         </xpath>
                         <xpath expr="//field[@name='name']" position="after">
@@ -179,30 +179,29 @@
                             <attribute name="groups" />
                         </xpath>
                         <xpath
-                    expr="//field[@name='payment_term_id']"
-                    position="before"
-                >
+                expr="//field[@name='payment_term_id']"
+                position="before"
+            >
                             <field name="arrival_date" />
                         </xpath>
 
                         <xpath
-                    expr="//field[@name='commitment_date']"
-                    position="attributes"
-                >
+                expr="//field[@name='commitment_date']"
+                position="attributes"
+            >
                             <attribute name="string">出荷日</attribute>
                             <attribute
-                        name="attrs"
-                    >{'readonly': [('state', 'in', ['never'])]}</attribute>
+                    name="attrs"
+                >{'readonly': [('state', 'in', ['never'])]}</attribute>
                         </xpath>
                         <xpath expr="//field[@name='product_id']" position="attributes">
                             <attribute
-                        name="context"
-                    >{'partner_id':parent.partner_id, 'quantity':product_uom_qty,
+                    name="context"
+                >{'partner_id':parent.partner_id, 'quantity':product_uom_qty,
                                 'pricelist':parent.pricelist_id, 'uom':product_uom,'display_default_code':False}</attribute>
                         </xpath>
 
                     </field>
         </record>
 
-    </data>
 </odoo>

@@ -22,7 +22,7 @@ class AccountMoveLine(models.Model):
                 group = line.sale_line_ids[0].order_id.procurement_group_id
                 if group:
                     pick = self.env["stock.picking"].search(
-                        [("group_id", "=", group.id), ("state", "=", "done"),]
+                        [("group_id", "=", group.id), ("state", "=", "done")]
                     )[:1]
                     if pick:
                         line.date_delivered = fields.Date.to_date(
@@ -42,5 +42,5 @@ class AccountMoveLine(models.Model):
                 [("name", "=", self.move_id[0].invoice_origin)]
             )[0]
             return sale_order[field_name]
-        except:
+        except Exception:
             return ""

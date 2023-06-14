@@ -72,7 +72,7 @@ class AccountMove(models.Model):
                 )[0]["subject"]
                 if subject:
                     return subject
-            except:
+            except Exception:
                 return " "
 
     def _compute_monthly_total(self):
@@ -101,7 +101,7 @@ class AccountMove(models.Model):
 
     @api.onchange("invoice_date", "partner_id", "monthly_invoices")
     def _onchange_invoice_date(self):
-        """ Warn if there is no invoice date and sales date"""
+        """Warn if there is no invoice date and sales date"""
         sale_order = self.env["sale.order"].search([("name", "=", self.invoice_origin)])
         if not self.invoice_date and not sale_order.date_order and self.partner_id:
             return {"warning": {"title": "エラー", "message": "御請求書の日付日が入っていません!"}}
@@ -160,14 +160,7 @@ class AccountMove(models.Model):
                 ],
                 order="date asc",
             )
-
-            # try:
-            #     same_month_sales_lines = all_sales_lines_of_this_customer.filtered(lambda
-            #                                                                        r: True if r.date.month == single_invoice.invoice_date.month and r.date.year == single_invoice.invoice_date.year else False)
-            #
-            # except:
             try:
-                # sale_order = self.env['sale.order'].search(([('name', '=', single_invoice.invoice_origin)]))
                 first_day, last_day = get_month_day_range(single_invoice.invoice_date)
                 same_month_sales_lines = all_sales_lines_of_this_customer.filtered(
                     lambda r: True
@@ -176,7 +169,7 @@ class AccountMove(models.Model):
                 )
             #     print(len(same_month_sales_lines))
             #     # single_invoice.invoice_date = sale_order.date_order
-            except:
+            except Exception:
                 single_invoice.monthly_invoices = single_invoice.invoice_line_ids
                 return {"error": {"title": "エラー", "message": "御請求書の日付日が入っていません!"}}
 
@@ -233,7 +226,7 @@ class AccountMove(models.Model):
                     else False
                 )
 
-            except:
+            except Exception:
                 sale_order = self.env["sale.order"].search(
                     [("name", "=", single_invoice.invoice_origin)]
                 )

@@ -112,6 +112,9 @@
             <div>
                 <div t-field="c.contact_team" />
             </div>
+            <div t-if="c.vat">
+                <span>登録番号: </span><span t-field="c.vat" />
+            </div>
         </div>
         <div class="remit_to_info">
             <div t-field="c.remit_to_info" />

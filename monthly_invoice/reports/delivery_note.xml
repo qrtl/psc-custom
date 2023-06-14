@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<openerp>
+<odoo>
 
        <template
         id="report_delivery_document"
         inherit_id="stock.report_delivery_document"
     >
-
         <xpath expr="//t[@t-call='web.html_container']" position="replace">
             <t t-call="web.html_container">
 
@@ -197,4 +196,4 @@
        </xpath>
 
      </template>
-</openerp>
+</odoo>

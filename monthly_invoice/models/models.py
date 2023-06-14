@@ -1,9 +1,8 @@
-import hashlib
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
-from odoo import api, fields, models
 
-
-class stock_picking(models.Model):
+class StockPicking(models.Model):
     _inherit = "stock.picking"
     arrival_date = fields.Char("必着日", compute="_compute_order_arrival")
     commitment_date = fields.Date("出荷日", compute="_compute_order_commitment")
@@ -43,31 +42,22 @@ class stock_picking(models.Model):
             sale_order = self.env["sale.order"].search([("name", "=", self.origin)])[0]
             return sale_order["client_order_ref"]
 
-        except:
+        except Exception:
             return ""
 
 
-class res_partner(models.Model):
+class ResPartner(models.Model):
     _inherit = "res.partner"
-    fax = fields.Char("Fax")
+    fax = fields.Char()
     country_id = fields.Many2one(
         "res.country",
         string="Country",
         default=lambda self: self.env["res.country"].search([("code", "=", "JP")]),
         help="Apply only if delivery or invoicing country match.",
     )
-    vat = fields.Char("Tax ID", compute="_compute_reference")
-
-    def _compute_reference(self):
-        for partner in self:
-            customer_info = str(partner.phone) + str(partner.name) + str(partner.id)
-            partner.vat = (
-                int(hashlib.sha256(customer_info.encode("utf-8")).hexdigest(), 16)
-                % 10 ** 8
-            )
 
 
-class sale_order(models.Model):
+class SaleOrder(models.Model):
     _inherit = "sale.order"
     print_partner_id = fields.Many2one("res.partner", "発送元")
     date_order = fields.Date("オーダー日", required=True)
@@ -99,7 +89,7 @@ class sale_order(models.Model):
         return True
 
 
-class product_name(models.Model):
+class Product(models.Model):
     _inherit = "product.product"
     _order = "name"
 
@@ -179,8 +169,8 @@ class product_name(models.Model):
                 if not sellers:
                     sellers = [x for x in product_supplier_info if not x.product_id]
                 # Filter out sellers based on the company. This is done afterwards for a better
-                # code readability. At this point, only a few sellers should remain, so it should
-                # not be a performance issue.
+                # code readability. At this point, only a few sellers should remain,
+                # so it should not be a performance issue.
                 if company_id:
                     sellers = [
                         x for x in sellers if x.company_id.id in [company_id, False]

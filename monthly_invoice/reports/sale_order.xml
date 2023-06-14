@@ -4,8 +4,11 @@
         id="report_sale_order_custom"
         inherit_id="sale.report_saleorder_document"
     >
-         <xpath expr="//div[@id='informations']" position="replace">
-             <div class="row mt32 mb32" id="informations">
+        <xpath expr="//div[@id='informations']" position="attributes">
+            <attribute name="t-att-style">"display: none"</attribute>
+        </xpath>
+        <xpath expr="//div[@id='informations']" position="after">
+            <div class="row mt32 mb32" id="informations">
                 <div t-if="doc.client_order_ref" class="col-auto mw-100 mb-2">
                     <strong>Your Reference:</strong>
                     <p class="m-0" t-field="doc.client_order_ref" />
@@ -36,118 +39,116 @@
                 </div>
 
             </div>
-         </xpath>
-            <xpath expr="//div[@id='informations']" position="inside">
-                <div t-if="doc.warehouse_id" class="col-auto mw-100 mb-2">
-                    <strong>出荷倉庫名:</strong>
-                    <p class="m-0" t-field="doc.warehouse_id.name" />
-                </div>
-            </xpath>
-
-         <xpath expr="//t[@t-set='address']" position="replace">
-
-                <div class="row" style="padding-top:50px">
-                    <div class="col-4 text-left">
-                        <div style="padding-top:50px;">
-                                <p>
-                                            <span style="font-size:17px;"><t
+        </xpath>
+        <xpath expr="//div[@id='informations']" position="inside">
+            <div t-if="doc.warehouse_id" class="col-auto mw-100 mb-2">
+                <strong>出荷倉庫名:</strong>
+                <p class="m-0" t-field="doc.warehouse_id.name" />
+            </div>
+        </xpath>
+        <xpath expr="//t[@t-set='address']" position="replace">
+            <div class="row" style="padding-top:50px">
+                <div class="col-4 text-left">
+                    <div style="padding-top:50px;">
+                            <p>
+                                        <span style="font-size:17px;"><t
                                     t-esc="doc.partner_id.name"
                                 /></span>
-                                            <br />
-                                            <span
+                                        <br />
+                                        <span
                                 style="font-size:17px !important;"
                                 t-field="doc.partner_id.zip"
                             /><br />
-                                            <span
+                                        <span
                                 style="font-size:17px !important;"
                                 t-field="doc.partner_id.state_id.name"
                             />
-                                            <span
+                                        <span
                                 style="font-size:17px !important;"
                                 t-esc="doc.partner_id.city"
                             />
-                                            <span
+                                        <span
                                 style="font-size:17px !important;"
                                 t-esc="doc.partner_id.street"
                             />
-                                            <span
+                                        <span
                                 style="font-size:17px !important;"
                                 t-esc="doc.partner_id.street2"
                             />
-                                        </p>
-                        <p>
+                                    </p>
+                    <p>
 <!--                            <strong t-if="doc.partner_shipping_id == doc.partner_invoice_id">Invoicing and Shipping Address:</strong>-->
-                            <strong>ご請求先:</strong>
-                            <p>
-                                            <span style="font-size:17px;"><t
+                        <strong>ご請求先:</strong>
+                        <p>
+                                        <span style="font-size:17px;"><t
                                         t-esc="doc.partner_invoice_id.name"
                                     /></span>
-                                            <br />
-                                            <span
+                                        <br />
+                                        <span
                                     style="font-size:17px !important;"
                                     t-field="doc.partner_invoice_id.zip"
                                 /><br />
-                                            <span
+                                        <span
                                     style="font-size:17px !important;"
                                     t-field="doc.partner_invoice_id.state_id.name"
                                 />
-                                            <span
+                                        <span
                                     style="font-size:17px !important;"
                                     t-esc="doc.partner_invoice_id.city"
                                 />
-                                            <span
+                                        <span
                                     style="font-size:17px !important;"
                                     t-esc="doc.partner_invoice_id.street"
                                 />
-                                            <span
+                                        <span
                                     style="font-size:17px !important;"
                                     t-esc="doc.partner_invoice_id.street2"
                                 />
 
-                                </p>
+                            </p>
 <!--                            <div t-field="doc.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>-->
-                            <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
-                                <strong>配送先:</strong>
-                                <p>
-                                    <br />
-                                            <span style="font-size:17px;"><t
+                        <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
+                            <strong>配送先:</strong>
+                            <p>
+                                <br />
+                                        <span style="font-size:17px;"><t
                                             t-esc="doc.partner_shipping_id.name"
                                         /></span>
-                                            <br />
-                                            <span
+                                        <br />
+                                        <span
                                         style="font-size:17px !important;"
                                         t-field="doc.partner_shipping_id.zip"
                                     /><br />
-                                            <span
+                                        <span
                                         style="font-size:17px !important;"
                                         t-field="doc.partner_shipping_id.state_id.name"
                                     />
-                                            <span
+                                        <span
                                         style="font-size:17px !important;"
                                         t-esc="doc.partner_shipping_id.city"
                                     />
-                                            <span
+                                        <span
                                         style="font-size:17px !important;"
                                         t-esc="doc.partner_shipping_id.street"
                                     />
-                                            <span
+                                        <span
                                         style="font-size:17px !important;"
                                         t-esc="doc.partner_shipping_id.street2"
                                     />
-                                </p>
-                            </t>
-                        </p>
-                        </div>
-                    </div>
-                    <div class="col-8">
+                            </p>
+                        </t>
+                    </p>
                     </div>
                 </div>
+                <div class="col-8">
+                </div>
+            </div>
         </xpath>
-
         <xpath
             expr="//t[@t-if='doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id']"
             position="replace"
         />
+
 <!--                <div class="row" style="padding-top:50px; font-size: 17px;">-->
 <!--                    <div class="col-4 text-left">-->
 <!--                        <t t-set="information_block">-->
@@ -165,17 +166,23 @@
 <!--                </div>-->
 <!--        </xpath>-->
 
-         <xpath expr="//span[@t-field='doc.payment_term_id.note']" position="replace" />
-         <xpath expr="//th[@name='th_description']" position="replace">
-                            <th name="th_description" class="text-left">商品名</th>
+        <xpath expr="//span[@t-field='doc.payment_term_id.note']" position="attributes">
+            <attribute name="t-att-style">"display: none"</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_description']" position="attributes">
+            <attribute name="t-att-style">"display: none"</attribute>
+        </xpath>
+        <xpath expr="//th[@name='th_description']" position="after">
+            <th name="th_description" class="text-left">商品名</th>
+        </xpath>
+        <xpath expr="//td[@name='td_name']" position="attributes">
+            <attribute name="t-att-style">"display: none"</attribute>
+        </xpath>
+        <xpath expr="//td[@name='td_name']" position="after">
+            <td name="td_name"><span t-field="line.product_id.name" />
+            </td>
 
-                        </xpath>
-         <xpath expr="//td[@name='td_name']" position="replace">
-                            <td name="td_name"><span
-                    t-field="line.product_id.name"
-                /></td>
-
-                        </xpath>
+        </xpath>
 
 
      </template>
