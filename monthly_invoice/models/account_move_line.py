@@ -1,6 +1,6 @@
 import datetime
 
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class AccountMoveLine(models.Model):

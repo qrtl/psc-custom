@@ -6,7 +6,7 @@
         Module to allow viewing and printing monthly invoices""",
     "license": "LGPL-3",
     "author": "豆ラボ, Quartile Limited",
-    "website": "https://beanslabo.com",
+    "website": "https://www.quartile.co",
     "category": "Accounting",
     "version": "13.0.2.0.1",
     "depends": ["crm", "sale_stock", "report_csv", "base_company_reporting"],
