@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+       <template
+        id="report_delivery_document"
+        inherit_id="stock.report_delivery_document"
+    >
+        <xpath expr="//t[@t-call='web.html_container']" position="replace">
+            <t t-call="web.html_container">
+
+            <div class="header">
+                        <div class="row" style="padding-top: 20px">
+                            <div class="col-7" style="float: left">
+                                <h2
+                                style="background-color:gray; color: white; text-align:center"
+                            > 御 納 品 書</h2>
+
+                            </div>
+                            <div class="col-5" style="float: right">
+                                <p class="float-right" style="width: 80%;">
+
+                                    出荷日:
+                                            <span t-esc="o.scheduled_date.year" />
+                                        年
+                                            <span t-esc="o.scheduled_date.month" />
+                                        月
+
+                                            <span t-esc="o.scheduled_date.day" />
+                                        日
+                                    <br />
+                                        納品No:  <span t-esc="o.name" />
+
+                                    <br />
+                                    オーダーNo: <span t-esc="o.origin" />
+                                    <br />
+                                    御社オーダーNo: <span
+                                    t-esc="o._get_order_data(client_order_ref)"
+                                />
+                                    <br />
+                                    <t t-if="o.sale_id.arrival_date">
+                                            <span>必着日: <t
+                                            t-esc="o.sale_id.arrival_date"
+                                        /></span>
+                                    </t>
+                                </p>
+
+
+                                <br />
+
+
+
+                            </div>
+                    </div>
+  </div>
+
+    <div class="article" style="padding-top:20px;">
+        <div class="subheader">
+                    <div class="row">
+                            <div class="col-7">
+                                <p>
+                                    <p>
+                                    <span
+                                            style="font-size:17px !important; font-weight: bold;"
+                                        ><t
+                                                t-esc="str(o.partner_id.name) + '　　御中' if o.partner_id.is_company else str(o.partner_id.name) +' 様'"
+                                            />
+                                    </span>
+                                    <br />
+                                    <span
+                                            style="font-size:17px !important;"
+                                            t-field="o.partner_id.zip"
+                                        /><br />
+                                    <span
+                                            style="font-size:17px !important;"
+                                            t-field="o.partner_id.state_id.name"
+                                        />
+                                    <span
+                                            style="font-size:17px !important;"
+                                            t-esc="o.partner_id.city"
+                                        />
+                                    <span
+                                            style="font-size:17px !important;"
+                                            t-esc="o.partner_id.street"
+                                        />
+                                    <span
+                                            style="font-size:17px !important;"
+                                            t-esc="o.partner_id.street2"
+                                        />
+
+
+                                </p>
+                                    <p
+                                        style="font-size:12px;"
+                                    >平素は格別のご高配を賜り厚く御礼申し上げます。
+                                        <br />
+                                        御納品いたします。宜しくお願い申し上げます。
+                                        <br />
+                                        <br />
+                                        <br />
+                                    </p>
+
+
+                                </p>
+                            </div>
+                            <div class="col-5">
+                                <p
+                                    class="float-right"
+                                    style="font-size:11px; font-weight: 9;"
+                                >
+                                    <t t-if="o.sale_id.print_partner_id">
+                                        <p>
+                                            <span style="font-size:17px;"><t
+                                                    t-esc="o.sale_id.print_partner_id.name"
+                                                /></span>
+                                            <br />
+                                            <span
+                                                style="font-size:17px !important;"
+                                                t-field="o.sale_id.print_partner_id.zip"
+                                            /><br />
+                                            <span
+                                                style="font-size:17px !important;"
+                                                t-field="o.sale_id.print_partner_id.state_id.name"
+                                            />
+                                            <span
+                                                style="font-size:17px !important;"
+                                                t-esc="o.sale_id.print_partner_id.city"
+                                            />
+                                            <span
+                                                style="font-size:17px !important;"
+                                                t-esc="o.sale_id.print_partner_id.street"
+                                            />
+                                            <span
+                                                style="font-size:17px !important;"
+                                                t-esc="o.sale_id.print_partner_id.street2"
+                                            />
+                                        </p>
+                                    </t>
+                                    <t t-if="not o.sale_id.print_partner_id">
+                                        <div style="width: 45%;">
+                                            <img
+                                                t-att-src="image_data_uri(o.company_id.logo)"
+                                            /></div>
+                                        <br />
+                                        <span t-esc="o.company_id.zip" /><br />
+                                        <span t-esc="o.company_id.state_id.name" />
+                                        <span t-esc="o.company_id.city" />
+                                        <span t-esc="o.company_id.street" />
+                                        <span t-esc="o.company_id.street2" />
+                                    </t>
+
+
+
+                                </p>
+                            </div>
+        </div>
+
+        </div>
+        <div class="body">
+            <table
+                            class="table table-sm"
+                            name="stock_move_table"
+                            style="font-weight: 9;"
+                        >
+                        <thead>
+                            <tr>
+                                <th name="th_sm_product"><strong>商 品 名</strong></th>
+                                <th name="th_sm_quantity" class="text-right"><strong
+                                        >数量</strong></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <t t-set="lines" t-value="o.move_lines" />
+                            <tr t-foreach="lines" t-as="move">
+                                <td>
+                                    <p>
+                                        <span t-esc="move.product_id.name" />
+                                    </p>
+                                </td>
+                                <td class="text-right">
+                                    <span
+                                            t-esc="'{0:,}'.format(round(move.product_qty))"
+                                        />
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+        </div>
+
+    </div>
+
+
+            </t>
+       </xpath>
+
+     </template>
+</odoo>
