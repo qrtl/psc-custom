@@ -25,7 +25,7 @@
         </xpath>
         <xpath
             expr="//div[@t-attf-class='header o_company_#{company.id}_layout']"
-            position="after"
+            position="before"
         >
                     <div t-attf-class="header o_company_#{company.id}_layout">
                         <div class="row">
