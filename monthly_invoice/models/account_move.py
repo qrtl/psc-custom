@@ -77,8 +77,9 @@ class AccountMove(models.Model):
 
     def _compute_monthly_total(self):
         for single_invoice in self:
+            moves = single_invoice.mapped("monthly_invoices.move_id")
             single_invoice.monthly_sum_with_tax = sum(
-                line.price_total for line in single_invoice.monthly_invoices
+                move.amount_total for move in moves
             )
 
     def _compute_monthly_tax(self):
@@ -90,8 +91,9 @@ class AccountMove(models.Model):
 
     def _compute_monthly_total_without_tax(self):
         for single_invoice in self:
+            moves = single_invoice.mapped("monthly_invoices.move_id")
             single_invoice.monthly_sum_without_tax = sum(
-                line.price_subtotal for line in single_invoice.monthly_invoices
+                move.amount_untaxed for move in moves
             )
 
     def _compute_invoice_issue_date(self):
