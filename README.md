@@ -7,9 +7,9 @@
 
 <!-- /!\ do not modify above this line -->
 
-# Custom modules for PSC
+# PSC Custom
 
-This repo keeps custom modules for PSC.
+
 
 <!-- /!\ do not modify below this line -->
 
