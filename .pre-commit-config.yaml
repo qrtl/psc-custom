@@ -41,6 +41,12 @@ repos:
       - id: oca-update-pre-commit-excluded-addons
       - id: oca-fix-manifest-website
         args: ["https://www.quartile.co"]
+      - id: oca-gen-addon-readme
+        args:
+          - --addons-dir=.
+          - --branch=13.0
+          - --org-name=qrtl
+          - --repo-name=psc-custom
   - repo: https://github.com/myint/autoflake
     rev: v1.4
     hooks:
